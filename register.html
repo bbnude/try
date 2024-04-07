@@ -1,0 +1,209 @@
+<!DOCTYPE >
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7c52625b7b.js" crossorigin="anonymous"></script>
+    <title>REGISTER | GCVO SYSTEM</title>
+    <link rel="shortcut icon" href="./image/LOGO.jpg" type="image/x-icon">
+    <style>
+        body {
+            width: 470px;
+            height: 240px;
+            display: grid;
+            place-content: center;
+            margin-top: 60px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            /* background: linear-gradient(to right, #ff3366, #9933ff); */
+        }
+        
+        form {
+            width: 500px;
+            height: 540px;
+            display: grid;
+            place-content: center;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+            margin-left: 1500px;
+            margin-top: 300px;
+            box-shadow: black 10px 10px;
+            border-style: solid;
+            border-color: rgb(0, 0, 0);
+        }
+        
+        input {
+            height: 35px;
+            width: 420px;
+            border-radius: 10px;
+            background-color: lavender;
+            border-color: lavenderblush;
+            box-shadow: 0 0 5px lavender;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            font-size: 20px;
+            height: 30px;
+            width: 425px;
+            color: black;
+            background-color: #ffffff;
+            border-color: lavenderblush;
+            border-radius: 12px;
+            margin-left: 15px;
+        }
+        
+        button:hover {
+            background-color: rgb(26, 236, 43);
+        }
+        
+        h1 {
+            font-size: 34px;
+            display: grid;
+            place-content: center;
+        }
+        
+        h3 {
+            margin-top: -1em;
+            display: grid;
+            place-content: center;
+            font-weight: lighter;
+        }
+        
+        a {
+            text-decoration: underline;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+        
+        .p2 {
+            margin-left: 100px;
+        }
+        
+        .fa-user {
+            margin-left: -1.50em;
+            bottom: 10px;
+            color: #000000;
+        }
+        
+        .fa-lock {
+            margin-left: -1.50em;
+            bottom: 10px;
+            color: #000000;
+        }
+        
+        .fa-envelope-open-text {
+            margin-left: -1.50em;
+            bottom: 10px;
+            color: #000000;
+        }
+        /* sa pag gawas sa text sulod sa input*/
+        
+        .form-control {
+            position: relative;
+            margin: 0 0 40px;
+            margin-left: 19px
+        }
+        
+        .form-control input:focus,
+        .form-control input:valid {
+            outline: 0;
+            border-bottom-color: gray;
+        }
+        
+        .form-control label {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .form-control label span {
+            display: inline-block;
+            font-size: 15px;
+            min-width: 5px;
+            transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            color: black;
+        }
+        
+        .form-control input:focus+label span,
+        .form-control input:valid+label span {
+            color: rgb(0, 0, 0);
+            transform: translateY(-30px);
+        }
+    </style>
+</head>
+
+<body>
+    <form action="add.php" method="post">
+        <h1>REGISTER NOW!</h1>
+        <h3>MAKE YOUR OWN WAYS!</h3>
+        <div class="form-control">
+            <i class="fa fa-user"></i>
+            <input type="text" id="user" name="Username" required>
+            <label for="">Username</label>
+        </div>
+
+        <div class="form-control">
+            <i class="fa fa-envelope-open-text"></i>
+            <input type="text" id="email" name="Email" required>
+            <label for="">Email</label>
+        </div>
+
+        <div class="form-control">
+            <i class="fa fa-user"></i>
+            <input type="number" min="0" id="age" name="Age" required>
+            <label for="">Age</label>
+        </div>
+        <div class="form-control">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="psw" name="Password" required>
+            <label for="">Password</label>
+        </div>
+
+        <button type="submit">Sign up</button>
+
+        <p class="p2">Already have an account &nbsp;<a href="index.html">Login</a></p>
+    </form>
+
+    <!--sulod sa tab kung eh click ang create account-->
+
+
+    <script>
+        const labels = document.querySelectorAll('.form-control label')
+        labels.forEach(label => {
+            label.innerHTML = label.innerText
+                .split('')
+                .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)
+                .join('')
+        })
+
+        function login() {
+            const username = document.getElementById('uname').value;
+            const password = document.getElementById('psw').value;
+
+            if (username && password) {
+                alert('Login successful');
+            } else {
+                alert('Please fill in both fields');
+            }
+        }
+
+        // Change the validation message for the email input
+        document.getElementById('email').addEventListener('input', function() {
+            this.setCustomValidity('');
+        });
+
+        document.getElementById('email').addEventListener('invalid', function() {
+            this.setCustomValidity('Please enter a valid email address.');
+        });
+
+        // Add similar event listeners for other fields if needed
+    </script>
+</body>
+
+</html>
